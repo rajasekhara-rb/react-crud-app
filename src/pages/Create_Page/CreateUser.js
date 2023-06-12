@@ -12,7 +12,7 @@ const CreateUser = () => {
         country: "",
     })
 
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
 
     const userDataHandler = (event) => {
         setUserData({ ...userData, [event.target.name]: event.target.value });
@@ -26,7 +26,7 @@ const CreateUser = () => {
         try {
             await axios.post(url, userData);
             setUpdateLoading(false);
-            Navigate("/");
+            navigate("/");
         } catch (error) {
 
         }

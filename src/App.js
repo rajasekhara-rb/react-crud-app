@@ -13,8 +13,8 @@ function App() {
       <Routes>
         <Route path="/" Component={Dashboard} />
         <Route path="/create" Component={CreateUser} />
-        <Route path="/edit" Component={Edit} />
-        <Route path="/profile" Component={Profile} />
+        <Route path="/edit/:id" Component={Edit} />
+        <Route path="/profile/:id" Component={Profile} />
       </Routes>
     </BrowserRouter>
   );
