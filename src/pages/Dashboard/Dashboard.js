@@ -85,39 +85,45 @@ const Dashboard = () => {
                             </Spinner> */}
                             </div>
                         ) : (
-                            users.map(user =>
-                                <ListGroupItem key={user.id}>
-                                    <div className="d-flex justify-content-between align-items-center w-100">
-
-                                        <Link to={"profile/" + user.id} className="d-flex">
-                                            <Button className="d-flex w-100 outline-none" color="none">
-                                                <HiUserCircle size={50} color="black" className="" />
-                                            </Button>
-                                        </Link>
-                                        <div className="d-flex flex-column align-items-start justify-content-center w-75 m-1">
-                                            <h4 className="mb-0">{user.name}</h4>
-                                            <p className="mb-0 text-primary">{user.email}</p>
-                                        </div>
-
-                                        <div className="d-flex justify-content-between m-1">
-                                            <Link to={"profile/" + user.id}>
-                                                <Button color="link"><BsFillEyeFill color="blue" size={25} /></Button>
-                                            </Link>
-                                            <Link to={"edit/" + user.id}>
-                                                <Button color="link"><BsPencilSquare color="orange" size={25} /></Button>
-                                            </Link>
-                                            <Button color="link" >
-                                                {id === user.id && deleteLoading ? (
-                                                    <Spinner color="danger" style={{
-                                                        height: '1.5rem',
-                                                        width: '1.5rem'
-                                                    }}>Loading</Spinner>
-                                                ) : (<BsFillTrashFill color="red" size={25} onClick={() => DeleteUser(user.id)} />)}
-                                            </Button>
-                                        </div>
-
-                                    </div>
+                            users ==="" ? (<div className="alert alert-warning mb-0">
+                                <ListGroupItem className="text-center mb-0">
+                                    <h6>Nothing to SHOW please add users</h6>
                                 </ListGroupItem>
+                            </div>) : (
+                                users.map(user =>
+                                    <ListGroupItem key={user.id}>
+                                        <div className="d-flex justify-content-between align-items-center w-100">
+
+                                            <Link to={"profile/" + user.id} className="d-flex">
+                                                <Button className="d-flex w-100 outline-none" color="none">
+                                                    <HiUserCircle size={50} color="black" className="" />
+                                                </Button>
+                                            </Link>
+                                            <div className="d-flex flex-column align-items-start justify-content-center w-75 m-1">
+                                                <h4 className="mb-0">{user.name}</h4>
+                                                <p className="mb-0 text-primary">{user.email}</p>
+                                            </div>
+
+                                            <div className="d-flex justify-content-between m-1">
+                                                <Link to={"profile/" + user.id}>
+                                                    <Button color="link"><BsFillEyeFill color="blue" size={25} /></Button>
+                                                </Link>
+                                                <Link to={"edit/" + user.id}>
+                                                    <Button color="link"><BsPencilSquare color="orange" size={25} /></Button>
+                                                </Link>
+                                                <Button color="link" >
+                                                    {id === user.id && deleteLoading ? (
+                                                        <Spinner color="danger" style={{
+                                                            height: '1.5rem',
+                                                            width: '1.5rem'
+                                                        }}>Loading</Spinner>
+                                                    ) : (<BsFillTrashFill color="red" size={25} onClick={() => DeleteUser(user.id)} />)}
+                                                </Button>
+                                            </div>
+
+                                        </div>
+                                    </ListGroupItem>
+                                )
                             )
                         )}
 
